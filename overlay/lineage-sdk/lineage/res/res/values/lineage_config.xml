@@ -68,4 +68,7 @@
         <item>restart_recovery</item>
         <item>restart_download</item>
     </string-array>
+
+    <!-- Default values for LiveDisplay -->
+    <integer name="config_defaultLiveDisplayMode">0</integer>
 </resources>
