@@ -9,7 +9,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # Telephony
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.telephony.default_network=10,10
+    ro.telephony.default_network=9,9
 
 # Bluetooth
 PRODUCT_PRODUCT_PROPERTIES += \
