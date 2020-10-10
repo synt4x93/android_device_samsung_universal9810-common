@@ -215,6 +215,11 @@
     <!-- Doze: should the TYPE_PICK_UP_GESTURE sensor be used as a pulse signal. -->
     <bool name="config_dozePulsePickup">false</bool>
 
+    <!-- Indicate whether closing the lid causes the device to go to sleep and opening
+         it causes the device to wake up.
+         The default is false. -->
+    <bool name="config_lidControlsSleep">true</bool>
+
     <!-- Power Management: Specifies whether to decouple the auto-suspend state of the
          device from the display on/off state.
          When false, autosuspend_disable() will be called before the display is turned on
