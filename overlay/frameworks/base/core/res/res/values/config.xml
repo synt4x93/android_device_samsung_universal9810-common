@@ -401,4 +401,8 @@
          without impacting power, performance, and app compatibility (e.g. protected content). -->
     <bool name="config_nightDisplayAvailable">false</bool>
 
+    <!-- Allow the gesture power + volume up to change the ringer mode while the device
+         is interactive. -->
+    <bool name="config_volumeHushGestureEnabled">false</bool>
+
 </resources>
