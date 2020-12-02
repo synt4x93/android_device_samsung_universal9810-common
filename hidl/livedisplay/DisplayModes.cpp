@@ -28,7 +28,12 @@ namespace samsung {
 
 static constexpr const char* kModePath = "/sys/class/mdnie/mdnie/mode";
 static constexpr const char* kModeMaxPath = "/sys/class/mdnie/mdnie/mode_max";
+#ifdef LIVES_IN_SYSTEM
+static constexpr const char* kDefaultPath = "/data/misc/display/.displaymodedefault";
+#else
 static constexpr const char* kDefaultPath = "/data/vendor/display/.displaymodedefault";
+#endif
+
 
 const std::map<int32_t, std::string> DisplayModes::kModeMap = {
     // clang-format off
@@ -37,11 +42,10 @@ const std::map<int32_t, std::string> DisplayModes::kModeMap = {
     {2, "Natural"},
     {3, "Cinema"},
     {4, "Adaptive"},
-    {5, "Reading"},
     // clang-format on
 };
 
-DisplayModes::DisplayModes() : mDefaultModeId(0) {
+DisplayModes::DisplayModes() : mDefaultModeId(4) {
     std::ifstream defaultFile(kDefaultPath);
     int value;
 
