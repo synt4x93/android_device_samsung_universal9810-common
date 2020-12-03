@@ -43,11 +43,23 @@ on property:sys.boot_completed=1
     write /sys/block/sda/queue/read_ahead_kb 256
     write /sys/block/sda/queue/nr_requests 128
 
+service sec-miscpower-2-0 /system/bin/true
+    oneshot
+    disabled
+
 service argos-daemon /system/bin/true
     oneshot
     disabled
 
+service cass /system/bin/true
+    oneshot
+    disabled
+
 service ExynosHWCServiceTW /system/bin/true
+    oneshot
+    disabled
+
+service ExynosHWCConfigs /system/bin/true
     oneshot
     disabled
 
@@ -59,10 +71,42 @@ service secure_storage /system/bin/true
     oneshot
     disabled
 
+service sec_wsm_service /system/bin/true
+    oneshot
+    disabled
+
 service vaultkeeper /system/bin/true
     oneshot
     disabled
 
-service sec_wsm_service /system/bin/true
+service vaultkeeper_hal /system/bin/true
+    oneshot
+    disabled
+
+service icccserv /system/bin/true
+    oneshot
+    disabled
+
+service timaserv /system/bin/true
+    oneshot
+    disabled
+
+service atnserv /system/bin/true
+    oneshot
+    disabled
+
+service ucmtlc-hal-service /system/bin/true
+    oneshot
+    disabled
+
+service snapserv /system/bin/true
+    oneshot
+    disabled
+
+service snap_utility_64 /system/bin/true
+    oneshot
+    disabled
+
+service snap_utility_32 /system/bin/true
     oneshot
     disabled
