@@ -59,9 +59,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Snap
 
-# Init
+# Rootdir
 PRODUCT_PACKAGES += \
-    fstab.zram \
+    fstab.samsungexynos9810 \
     init.samsung.rc \
     init.usb_accessory.rc
 

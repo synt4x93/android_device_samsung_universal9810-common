@@ -31,7 +31,7 @@ service lpm /system/bin/lpm
     critical
 
 on fs
-    swapon_all /system/etc/fstab.zram
+    swapon_all /vendor/etc/fstab.${ro.hardware}
 
 on late-fs
     write /sys/block/sda/queue/iostats 0
