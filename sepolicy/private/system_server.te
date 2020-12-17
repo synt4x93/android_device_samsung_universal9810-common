@@ -1,1 +1,4 @@
+type boot_prop, property_type;
+set_prop(system_server, boot_prop);
+
 allow system_server sysfs_rtc:file rw_file_perms;
