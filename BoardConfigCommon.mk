@@ -50,7 +50,7 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53
 
-# Extracted with libbootimg
+# Kernel
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
 BOARD_KERNEL_IMAGE_NAME := Image
@@ -59,12 +59,11 @@ BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
-TARGET_KERNEL_CLANG_COMPILE := true
-
-# Kernel
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/samsung/universal9810
+TARGET_KERNEL_CLANG_VERSION := r353983c1
+TARGET_KERNEL_CLANG_COMPILE := true
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE     := 57671680
@@ -78,38 +77,33 @@ TARGET_USERIMAGES_USE_F2FS := true
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
 BOARD_ROOT_EXTRA_FOLDERS := efs
+TARGET_COPY_OUT_VENDOR := vendor
+
+# Graphics
+TARGET_USES_HWC2 := true
+OVERRIDE_RS_DRIVER := libRSDriverArm.so
+BACKLIGHT_PATH := "/sys/class/backlight/panel/brightness"
 
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
 TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/recovery/recovery.fstab
+BOARD_HAS_DOWNLOAD_MODE := true
+
+# Charger
+BOARD_CHARGER_ENABLE_SUSPEND := true
 
 # VNDK
 BOARD_VNDK_VERSION := current
 PRODUCT_TARGET_VNDK_VERSION := 29
 
-# Vendor
-TARGET_COPY_OUT_VENDOR := vendor
-
-# Enable 64-bits binder
-TARGET_USES_64_BIT_BINDER := true
-
-# Graphics
-TARGET_USES_HWC2 := true
-NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
-OVERRIDE_RS_DRIVER := libRSDriverArm.so
-BACKLIGHT_PATH := "/sys/class/backlight/panel/brightness"
-
 # HIDL
 DEVICE_FRAMEWORK_MANIFEST_FILE := $(COMMON_PATH)/framework_manifest.xml
 
-# Properties
-BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
-
-# Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := $(COMMON_PATH)/releasetools
-
 # SELinux
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(COMMON_PATH)/sepolicy/private
+
+# Properties
+BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
 # Inherit from the proprietary version
 -include vendor/samsung/universal9810-common/BoardConfigVendor.mk
