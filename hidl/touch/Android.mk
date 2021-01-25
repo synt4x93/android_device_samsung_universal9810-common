@@ -24,7 +24,7 @@ LOCAL_MODULE_RELATIVE_PATH := hw
 
 LOCAL_SRC_FILES := \
     GloveMode.cpp \
-	KeyDisabler.cpp \
+    KeyDisabler.cpp \
     StylusMode.cpp \
     TouchscreenGesture.cpp \
     service.cpp
