@@ -18,6 +18,9 @@ on init
     chmod 0666 /sys/kernel/gpu/gpu_max_clock
     chmod 0666 /sys/kernel/gpu/gpu_min_clock
 
+    # FastCharge
+    chown system system /sys/class/sec/switch/afc_disable
+
 on boot
     # ZRAM setup
     write /sys/block/zram0/comp_algorithm lz4

@@ -15,6 +15,9 @@
 # Touch HAL
 /system/bin/hw/lineage\.touch@1\.0-service\.samsung	  u:object_r:hal_touch_samsung_exec:s0
 
+# FastCharge HAL
+/system/bin/hw/lineage\.fastcharge@1\.0-service\.9810    u:object_r:hal_lineage_fastcharge_default_exec:s0
+
 # Vendor overlay
 /(product|system/product)/vendor_overlay/[0-9]+/etc(/.*)?	u:object_r:vendor_configs_file:s0
 

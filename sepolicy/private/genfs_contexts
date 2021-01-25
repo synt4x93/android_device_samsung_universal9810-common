@@ -19,3 +19,6 @@ genfscon sysfs /devices/platform/141c0000.speedy/i2c-15/15-0000/s2mps18-rtc/rtc 
 
 # Touch
 genfscon sysfs /devices/virtual/sec/tsp     u:object_r:sysfs_sec_tsp:s0
+
+# FastCharge
+genfscon sysfs /devices/virtual/sec/switch/afc_disable     u:object_r:sysfs_fastcharge:s0
