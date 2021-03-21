@@ -38,7 +38,6 @@ LOCAL_SHARED_LIBRARIES := \
     libbase \
     libbinder \
     libhidlbase \
-    libhidltransport \
     libutils \
     vendor.lineage.touch@1.0
 
