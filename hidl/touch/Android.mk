@@ -32,6 +32,8 @@ LOCAL_SRC_FILES := \
 LOCAL_REQUIRED_MODULES := \
     lineage.touch@1.0-service.samsung.rc
 
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/include
+
 LOCAL_SHARED_LIBRARIES := \
     libbase \
     libbinder \
