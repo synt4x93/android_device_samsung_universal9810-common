@@ -1,8 +1,3 @@
-# Audio
-lib/hw/audio.playback_record.default.so
-lib/hw/audio.tms.default.so
-lib/libsecaudiocoreutils.so
-
 # Bluetooth - APT-X
 lib64/libaptX_encoder.so
 
