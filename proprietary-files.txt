@@ -1,10 +1,6 @@
 # Bluetooth - APT-X
 lib64/libaptX_encoder.so
 
-# Hotword Enrollment
--priv-app/HotwordEnrollmentOKGoogleExCORTEXM4/HotwordEnrollmentOKGoogleExCORTEXM4.apk;PRESIGNED
--priv-app/HotwordEnrollmentXGoogleExCORTEXM4/HotwordEnrollmentXGoogleExCORTEXM4.apk;PRESIGNED
-
 # NFC
 etc/nfc_key
 etc/nfcee_access.xml
