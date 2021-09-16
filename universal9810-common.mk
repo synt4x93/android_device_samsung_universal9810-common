@@ -1,6 +1,9 @@
 # SPDX-License-Identifier: Apache-2.0
 # Copyright (C) 2021 The LineageOS Project
 
+# VNDK
+PRODUCT_EXTRA_VNDK_VERSIONS := 29
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
