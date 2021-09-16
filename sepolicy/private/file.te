@@ -3,8 +3,4 @@ type sysfs_lcd_writable, sysfs_type, fs_type;
 type sysfs_health, sysfs_type, fs_type;
 type sysfs_sec_key, sysfs_type, fs_type;
 type sysfs_sec_tsp, sysfs_type, fs_type;
-type sysfs_kgsl, sysfs_type, fs_type;
-type sysfs_devfreq, sysfs_type, fs_type;
-type sysfs_gpu, sysfs_type, fs_type;
-type cpu_dma_device, dev_type;
 type sysfs_fastcharge, sysfs_type, fs_type;

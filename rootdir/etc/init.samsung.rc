@@ -1,7 +1,6 @@
 on init
     # Disable vendor overlay
     mount none /vendor/lost+found /vendor/overlay bind
-    mount none /system/lib64/libperfmgr.so /vendor/lib64/libperfmgr.so bind
 
     # Set SunlightEnhancement sysnode owner
     chown system system /sys/class/mdnie/mdnie/lux
@@ -11,12 +10,6 @@ on init
     chown system system /sys/class/timed_output/vibrator/intensity
     chown system system /sys/class/timed_output/vibrator/force_touch_intensity
     write /sys/class/timed_output/vibrator/force_touch_intensity 10000
-    
-    # GPU
-    chown radio system /sys/kernel/gpu/gpu_max_clock
-    chown radio system /sys/kernel/gpu/gpu_min_clock
-    chmod 0666 /sys/kernel/gpu/gpu_max_clock
-    chmod 0666 /sys/kernel/gpu/gpu_min_clock
 
     # FastCharge
     chown system system /sys/class/sec/switch/afc_disable
