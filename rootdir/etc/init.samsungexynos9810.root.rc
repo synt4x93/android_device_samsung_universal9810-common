@@ -1,4 +1,7 @@
 on init
+    # Disable vendor overlay
+    mount none /vendor/lost+found /vendor/overlay bind
+
     # for audit message
     chown system system /proc/avc_msg
     chmod 0660 /proc/avc_msg
@@ -67,6 +70,13 @@ on init
     chmod 0440 /proc/extra
 
     chmod 0660 /sys/power/wakeup_count
+
+    # Vibrator
+    chown system system /sys/class/timed_output/vibrator/enable
+    chown system system /sys/class/timed_output/vibrator/intensity
+    chown system system /sys/class/timed_output/vibrator/force_touch_intensity
+    chown system system /sys/class/timed_output/vibrator/motor_type
+    write /sys/class/timed_output/vibrator/force_touch_intensity 10000
 
 on early-fs
     # tzic need to be grand permission before vold
@@ -245,7 +255,6 @@ on post-fs-data
     # Create all remaining /data root dirs so that they are made through init
     # and get proper encryption policy installed
     mkdir /data/backup 0700 system system
-    mkdir /data/ss 0700 system system
 
     # TAD
     mkdir /data/tad 0770 system system
@@ -260,18 +269,6 @@ on post-fs-data
     mkdir /data/vendor/mediacodec 0700 mediacodec mediacodec
     mkdir /data/vendor/mediacodec/fruc_files 0700 mediacodec mediacodec
     mkdir /data/vendor/mediacodec/fruc_assets 0700 mediacodec mediacodec
-    copy /system/media/fruc_kernels.s9.slsi.bin /data/vendor/mediacodec/fruc_assets/fruc_kernels.s9.slsi.bin
-    copy /system/media/fruc_kernels.exynos9820.bin /data/vendor/mediacodec/fruc_assets/fruc_kernels.exynos9820.bin
-    copy /system/media/fruc_kernels.exynos990.bin /data/vendor/mediacodec/fruc_assets/fruc_kernels.exynos990.bin
-    copy /system/media/fruc_kernels.exynos980.bin /data/vendor/mediacodec/fruc_assets/fruc_kernels.exynos980.bin
-    copy /system/media/fruc_kernels.exynos9610.bin /data/vendor/mediacodec/fruc_assets/fruc_kernels.exynos9610.bin
-    copy /system/media/fruc_kernels.exynos7885.bin /data/vendor/mediacodec/fruc_assets/fruc_kernels.exynos7885.bin
-    chown mediacodec mediacodec /data/vendor/mediacodec/fruc_assets/fruc_kernels.s9.slsi.bin
-    chown mediacodec mediacodec /data/vendor/mediacodec/fruc_assets/fruc_kernels.exynos9820.bin
-    chown mediacodec mediacodec /data/vendor/mediacodec/fruc_assets/fruc_kernels.exynos990.bin
-    chown mediacodec mediacodec /data/vendor/mediacodec/fruc_assets/fruc_kernels.exynos9610.bin
-    chown mediacodec mediacodec /data/vendor/mediacodec/fruc_assets/fruc_kernels.exynos980.bin
-    chown mediacodec mediacodec /data/vendor/mediacodec/fruc_assets/fruc_kernels.exynos7885.bin
 
     # FINGERPRINT
     mkdir /data/vendor/biometrics 0770 system system
@@ -507,6 +504,7 @@ on boot
     chmod 0664 /sys/power/cpufreq_max_limit
 
     # permission for CHARGING
+    chown system system /sys/class/sec/switch/afc_disable
     mkdir /efs/Battery 0775 radio system
     chown radio system /efs/Battery
     chmod 0775 /efs/Battery
@@ -787,9 +785,6 @@ on boot
     chmod 771 /efs/usb_hw_param
     chown system system /efs/usb_hw_param/usb_hw_param.log
     chmod 0660 /efs/usb_hw_param/usb_hw_param.log
-
-    chown system system /sys/class/timed_output/vibrator/intensity
-    chown system system /sys/class/timed_output/vibrator/motor_type
 
     # UFS
     chown system system /sys/block/sda/device/model
@@ -1213,8 +1208,8 @@ on property:sys.boot_completed=1
     chmod 0644 /sys/kernel/gpu/gpu_max_clock
     chmod 0644 /sys/kernel/gpu/gpu_min_clock
 
-# LPM
-service lpm /system/bin/lpm
+# Charger
+service charger /system/bin/charger
     class sec-charger
     user root
     group system radio input
