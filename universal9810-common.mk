@@ -20,7 +20,7 @@ TARGET_SCREEN_WIDTH := 1440
 
 # Init
 PRODUCT_PACKAGES += \
-    fstab.zram \
+    fstab.samsungexynos9810 \
     init.samsung.rc \
     init.usb_accessory.rc
 
