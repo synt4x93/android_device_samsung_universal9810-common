@@ -70,7 +70,7 @@ BOARD_ROOT_EXTRA_FOLDERS := efs
 
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
-TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/recovery/recovery.fstab
+TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.samsungexynos9810
 BOARD_HAS_DOWNLOAD_MODE := true
 
 # Vendor
