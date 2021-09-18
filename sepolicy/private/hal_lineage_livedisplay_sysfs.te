@@ -4,8 +4,7 @@ hal_server_domain(hal_lineage_livedisplay_sysfs, hal_lineage_livedisplay)
 type hal_lineage_livedisplay_sysfs_exec, exec_type, system_file_type, file_type;
 init_daemon_domain(hal_lineage_livedisplay_sysfs)
 
-# Grant access over LiveDisplay tuneables
-allow hal_lineage_livedisplay_sysfs sysfs_lcd_writable:file rw_file_perms;
 allow hal_lineage_livedisplay_sysfs sysfs_lcd_writable:dir r_dir_perms;
+allow hal_lineage_livedisplay_sysfs sysfs_lcd_writable:file rw_file_perms;
 
-allow hal_lineage_livedisplay_sysfs vendor_data_file:file read;
+allow hal_lineage_livedisplay_sysfs display_misc_file:file { create_file_perms rw_file_perms };
